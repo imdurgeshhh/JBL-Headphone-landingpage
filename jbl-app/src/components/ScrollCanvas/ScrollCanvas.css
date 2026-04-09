@@ -1,0 +1,31 @@
+/* ─── CANVAS (Fixed fullscreen) ────────────────────────────────── */
+.canvas-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+#product-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.canvas-vignette {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 65% 55% at center, transparent 15%, var(--bg-primary) 100%),
+        linear-gradient(to bottom, var(--bg-primary) 0%, transparent 20%),
+        linear-gradient(to top, var(--bg-primary) 0%, transparent 20%),
+        linear-gradient(to right, var(--bg-primary) 0%, transparent 25%),
+        linear-gradient(to left, var(--bg-primary) 0%, transparent 25%);
+    z-index: 2;
+}

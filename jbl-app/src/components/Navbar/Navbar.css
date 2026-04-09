@@ -1,0 +1,107 @@
+/* ─── NAVIGATION ───────────────────────────────────────────────── */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: var(--nav-height);
+    background: var(--nav-bg);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-bottom: 1px solid var(--nav-border);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.6s var(--ease-out-expo),
+                transform 0.6s var(--ease-out-expo);
+    will-change: opacity, transform;
+}
+
+.nav--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--section-padding);
+}
+
+.nav__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nav__logo { width: 28px; height: 28px; }
+
+.nav__title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.nav__links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav__link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-amber));
+    border-radius: 1px;
+    transition: width 0.3s var(--ease-out-expo);
+}
+
+.nav__link:hover { color: var(--text-primary); }
+.nav__link:hover::after,
+.nav__link.active::after { width: 100%; }
+.nav__link.active { color: var(--text-primary); }
+
+.nav__cta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 8px 20px;
+    border-radius: 100px;
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-amber));
+    color: #000;
+    transition: transform 0.3s var(--ease-out-expo),
+                box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav__cta:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 24px rgba(255,107,0,0.3);
+}
+
+@media (max-width: 900px) {
+    .nav__links { display: none; }
+    .nav__cta { font-size: 11px; padding: 7px 16px; }
+}
+
+@media (max-width: 600px) {
+    .nav__title { font-size: 12px; }
+}

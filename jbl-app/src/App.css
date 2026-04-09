@@ -1,0 +1,12 @@
+/* ─── APP LAYOUT ───────────────────────────────────────────────── */
+.scroll-container {
+    position: relative;
+    height: 600vh;
+    z-index: 10;
+}
+
+@media (max-width: 600px) {
+    .scroll-container {
+        height: 500vh;
+    }
+}
